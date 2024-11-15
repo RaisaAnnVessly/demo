@@ -1,0 +1,26 @@
+<div class="container">
+    <h3>New Employee Info</h3>
+    <hr>
+    <!--Template Driven Form #Template Reference Variable-->
+    <form name="frmEmployee" #form="ngForm autocomplete="off" (ngSubmit)="onsubmit(form)">
+    EmployeeId:hidden
+    <div class="form-group">
+      <input type="hidden" readonly
+       name="EmployeeId" class="form-control"
+       
+       [(ngModel)]="employeeService.employee.EmployeeId"
+       >
+
+    EmployeeName:hidden
+    <div class="form-group">
+      <input type="hidden" readonly
+       name="EmployeeName" class="form-control"
+    #EmployeeName="ngModel"
+    [(ngModel)]="employeeService.employee.EmployeeName"
+    minlength="3" maxlength="25" required
+    [ngClass]="{'is-valid': EmployeeName.touched && EmployeeName.invalid}"
+       />
+    </div>
+    
+       
+    </form>
